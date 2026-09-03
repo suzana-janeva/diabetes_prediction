@@ -1,0 +1,63 @@
+============================================================
+DIABETES HEALTH INDICATORS - EXPLORATORY DATA ANALYSIS
+============================================================
+
+Raw shape: 70692 rows x 22 columns
+Duplicate rows: 1635
+Shape after deduplication: 69057 rows x 22 columns
+Missing values (total cells): 0
+
+--- Class balance ---
+  No diabetes (0): 0.4918 (33960 rows)
+  Diabetes (1): 0.5082 (35097 rows)
+
+--- Descriptive statistics ---
+                        count       mean        std   min   25%   50%   75%   max
+Diabetes_binary       69057.0   0.508232   0.499936   0.0   0.0   1.0   1.0   1.0
+HighBP                69057.0   0.571224   0.494905   0.0   0.0   1.0   1.0   1.0
+HighChol              69057.0   0.531329   0.499021   0.0   0.0   1.0   1.0   1.0
+CholCheck             69057.0   0.974803   0.156723   0.0   1.0   1.0   1.0   1.0
+BMI                   69057.0  29.955834   7.147972  12.0  25.0  29.0  33.0  98.0
+Smoker                69057.0   0.481935   0.499677   0.0   0.0   0.0   1.0   1.0
+Stroke                69057.0   0.063643   0.244118   0.0   0.0   0.0   0.0   1.0
+HeartDiseaseorAttack  69057.0   0.150875   0.357930   0.0   0.0   0.0   0.0   1.0
+PhysActivity          69057.0   0.696483   0.459780   0.0   0.0   1.0   1.0   1.0
+Fruits                69057.0   0.605659   0.488712   0.0   0.0   1.0   1.0   1.0
+Veggies               69057.0   0.784120   0.411434   0.0   1.0   1.0   1.0   1.0
+HvyAlcoholConsump     69057.0   0.043515   0.204014   0.0   0.0   0.0   0.0   1.0
+AnyHealthcare         69057.0   0.953908   0.209687   0.0   1.0   1.0   1.0   1.0
+NoDocbcCost           69057.0   0.096138   0.294782   0.0   0.0   0.0   0.0   1.0
+GenHlth               69057.0   2.863692   1.107950   1.0   2.0   3.0   4.0   5.0
+MentHlth              69057.0   3.840103   8.231164   0.0   0.0   0.0   3.0  30.0
+PhysHlth              69057.0   5.945306  10.139113   0.0   0.0   0.0   6.0  30.0
+DiffWalk              69057.0   0.258612   0.437875   0.0   0.0   0.0   1.0   1.0
+Sex                   69057.0   0.456464   0.498105   0.0   0.0   0.0   1.0   1.0
+Age                   69057.0   8.604037   2.858284   1.0   7.0   9.0  11.0  13.0
+Education             69057.0   4.900285   1.029338   1.0   4.0   5.0   6.0   6.0
+Income                69057.0   5.651332   2.175608   1.0   4.0   6.0   8.0   8.0
+
+--- Correlation with target (sorted) ---
+GenHlth                 0.396571
+HighBP                  0.372048
+BMI                     0.285643
+HighChol                0.281399
+Age                     0.274550
+DiffWalk                0.267082
+HeartDiseaseorAttack    0.207229
+PhysHlth                0.206868
+Stroke                  0.122727
+CholCheck               0.118900
+MentHlth                0.080688
+Smoker                  0.075853
+Sex                     0.042538
+NoDocbcCost             0.036145
+AnyHealthcare           0.027034
+Fruits                 -0.044560
+Veggies                -0.072181
+HvyAlcoholConsump      -0.098709
+PhysActivity           -0.150281
+Education              -0.158522
+Income                 -0.212846
+
+Saved 5 figures to /home/suzana/public_html/diabetes-prediction/figures
+Saved deduplicated dataset to /home/suzana/public_html/diabetes-prediction/data/diabetes_dedup.csv

@@ -1,0 +1,127 @@
+============================================================
+DIABETES PREDICTION - MODEL TRAINING & EVALUATION
+============================================================
+
+Dataset: 69057 rows, 21 features
+Train: 55245 rows | Test: 13812 rows (untouched until final eval)
+
+------------------------------------------------------------
+Decision Tree
+------------------------------------------------------------
+Best params: {'clf__criterion': 'entropy', 'clf__max_depth': 8, 'clf__min_samples_leaf': 50}
+Best CV ROC-AUC (from GridSearchCV): 0.8110
+Grid search time: 8.7s
+5-fold CV on training set (tuned model):
+  accuracy  : 0.7344 +/- 0.0036
+  precision : 0.7215 +/- 0.0057
+  recall    : 0.7776 +/- 0.0147
+  f1        : 0.7484 +/- 0.0052
+  roc_auc   : 0.8110 +/- 0.0048
+Test set evaluation:
+  Accuracy : 0.7340
+  Precision: 0.7234
+  Recall   : 0.7717
+  F1-score : 0.7468
+  ROC-AUC  : 0.8093
+  Confusion matrix [[TN FP] [FN TP]]:
+[[4721 2071]
+ [1603 5417]]
+
+------------------------------------------------------------
+Random Forest
+------------------------------------------------------------
+Best params: {'clf__max_depth': 10, 'clf__min_samples_leaf': 1, 'clf__n_estimators': 300}
+Best CV ROC-AUC (from GridSearchCV): 0.8229
+Grid search time: 91.7s
+5-fold CV on training set (tuned model):
+  accuracy  : 0.7473 +/- 0.0026
+  precision : 0.7304 +/- 0.0020
+  recall    : 0.7970 +/- 0.0058
+  f1        : 0.7622 +/- 0.0030
+  roc_auc   : 0.8229 +/- 0.0035
+Test set evaluation:
+  Accuracy : 0.7459
+  Precision: 0.7283
+  Recall   : 0.7977
+  F1-score : 0.7614
+  ROC-AUC  : 0.8199
+  Confusion matrix [[TN FP] [FN TP]]:
+[[4703 2089]
+ [1420 5600]]
+
+------------------------------------------------------------
+Logistic Regression
+------------------------------------------------------------
+Best params: {'clf__C': 0.01, 'clf__penalty': 'l2'}
+Best CV ROC-AUC (from GridSearchCV): 0.8200
+Grid search time: 1.1s
+5-fold CV on training set (tuned model):
+  accuracy  : 0.7447 +/- 0.0041
+  precision : 0.7383 +/- 0.0039
+  recall    : 0.7710 +/- 0.0064
+  f1        : 0.7543 +/- 0.0043
+  roc_auc   : 0.8200 +/- 0.0035
+Test set evaluation:
+  Accuracy : 0.7446
+  Precision: 0.7374
+  Recall   : 0.7726
+  F1-score : 0.7546
+  ROC-AUC  : 0.8174
+  Confusion matrix [[TN FP] [FN TP]]:
+[[4860 1932]
+ [1596 5424]]
+
+------------------------------------------------------------
+K-Nearest Neighbors
+------------------------------------------------------------
+Best params: {'clf__n_neighbors': 51, 'clf__weights': 'uniform'}
+Best CV ROC-AUC (from GridSearchCV): 0.8083
+Grid search time: 16.0s
+5-fold CV on training set (tuned model):
+  accuracy  : 0.7357 +/- 0.0037
+  precision : 0.7186 +/- 0.0031
+  recall    : 0.7889 +/- 0.0064
+  f1        : 0.7521 +/- 0.0039
+  roc_auc   : 0.8083 +/- 0.0044
+Test set evaluation:
+  Accuracy : 0.7359
+  Precision: 0.7179
+  Recall   : 0.7912
+  F1-score : 0.7528
+  ROC-AUC  : 0.8074
+  Confusion matrix [[TN FP] [FN TP]]:
+[[4610 2182]
+ [1466 5554]]
+
+============================================================
+BEST MODEL (by test ROC-AUC): Random Forest (ROC-AUC = 0.8199)
+============================================================
+
+Random Forest - top 5 features by Gini importance:
+ feature  importance
+ GenHlth    0.225649
+  HighBP    0.201046
+     BMI    0.137612
+     Age    0.101448
+HighChol    0.095657
+
+Logistic Regression - top 5 standardised coefficients:
+ feature  coefficient
+ GenHlth     0.620818
+     BMI     0.524566
+     Age     0.419895
+  HighBP     0.355137
+HighChol     0.288610
+
+Computing permutation importance for best model (Random Forest) on test set...
+Permutation importance - top 5 features:
+ feature  importance_mean  importance_std
+ GenHlth         0.041041        0.001150
+     BMI         0.029718        0.001164
+  HighBP         0.024349        0.000521
+     Age         0.017858        0.000742
+HighChol         0.012475        0.000593
+
+Saved fig06-fig09 to /home/suzana/public_html/diabetes-prediction/figures
+
+Total run time: 2.7 min
